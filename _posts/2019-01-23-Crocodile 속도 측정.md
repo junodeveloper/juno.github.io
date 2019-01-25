@@ -1,3 +1,9 @@
+### 1. 개요
+
+Crocodile의 실행 속도를 단계별로 측정하고 결과를 기록했다. 측정은 단순히 평균값을 계산하는 방식으로 진행되었다.
+
+### 2. 결과
+
 CrocodilePfi:findSubRectList : 105ms
 
 - Crocodile::findSubRectList : 105ms
