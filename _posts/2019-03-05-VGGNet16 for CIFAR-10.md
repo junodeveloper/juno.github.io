@@ -38,6 +38,38 @@ prefetch를 적용했다. (GPU가 열심히 학습돌릴 동안 CPU가 다음 ba
 
 
 
+## 5. L2 regularization
+
+L2 정규화 코드 추가 후 학습 진행중.. () 이미 3000번 정도로 33% 찍은 상황 (iteration: 20000)
+
+accuracy: 0.627700 (50 epochs)
+
+왜 학습률이 더 떨어지지. 내가 잘못 구현했나..
+
+
+
+## 6. Input normalization
+
+keras 코드를 보니 train input과 test input을 각각 normalize하는 부분이 있었다. 이 부분을 한번 추가해보고 VGGNet 실험은 마무리하자. (dataset에 apply 메서드를 활용하면 되지 않을까.)
+
+
+
+keras 코드에서 normalization을 **빼고** 돌려봤는데 거의 변화 없음.
+
+
+
+## 7. Training accuracy vs Validation accuracy
+
+위에서 언급한 정확도는 모두 Validation accuracy인데, training set에 대한 accuracy도 계산해봤다.
+
+train acc: 0.979628
+
+validation acc: 0.751483
+
+training accuracy가 상당히 높았다. Keras 코드보다도. 그만큼 overfitting이 심하게 이루어졌음을 의미한다.
+
+첫 실험이기 때문에 굳이 이 부분은 고치지 않기로 했다.
+
 ## 소감
 
 최근에는 BN이 거의 필수적으로 사용된다고 하던데, 왜 그런지를 몸소 실감할 수 있었다. BN을 사용하지 않으면 VGGNet과 같은 deep net이 아예 학습이 안되는 상황도 발생할 수 있다는 걸 깨달았다.
@@ -55,4 +87,3 @@ Iteration 2000번까지는 이전에 구현한 BasicCNN과 정확도가 비슷�
 - iteration 단위 학습 -> epoch 단위 학습
 - 학습하는데 걸린 시간 측정
 - Validation accuracy를 log 찍어서 TensorBoard로 시각화
-
